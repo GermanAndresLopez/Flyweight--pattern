@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
+# Patrón Flyweight en TypeScript
 
-## Project info
+Este proyecto es una implementación del **patrón de diseño estructural Flyweight**, desarrollada en **TypeScript**, con el objetivo de mostrar cómo optimizar el uso de memoria cuando se crean muchos objetos similares.
 
-**URL**: https://lovable.dev/projects/441754d0-ce0f-4c84-8f71-55705487fc4b
+## 🧩 Descripción del proyecto
 
-## How can I edit this code?
+Implementamos el **patrón Flyweight** para demostrar cómo compartir el estado común entre múltiples instancias, evitando la duplicación de datos innecesarios.  
+En este ejemplo, se puede observar cómo los objetos comparten su parte **intrínseca** (la que no cambia) y reciben de forma externa su parte **extrínseca** (la que varía según el contexto).
 
-There are several ways of editing your application.
+El propósito es entender cómo este patrón mejora el rendimiento en escenarios donde se crean cientos o miles de objetos con información repetida.
 
-**Use Lovable**
+## ⚙️ Tecnologías utilizadas
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/441754d0-ce0f-4c84-8f71-55705487fc4b) and start prompting.
+- **TypeScript**
+- **Node.js**
 
-Changes made via Lovable will be committed automatically to this repo.
+Cómo ejecutar el proyecto
 
-**Use your preferred IDE**
+Clona el repositorio:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+git clone https://github.com/GermanAndresLopez/Flyweight--pattern
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+Ingresa al directorio:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+cd Flyweight--pattern
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+Instala las dependencias:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
+
+
+Ejecuta el ejemplo:
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+o si usas ts-node:
 
-**Use GitHub Codespaces**
+npx ts-node src/index.ts
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+💡 Ejemplo de funcionamiento
 
-## What technologies are used for this project?
+En este ejemplo, cada vez que el cliente solicita un objeto con un estado intrínseco igual, la FlyweightFactory devuelve una instancia ya existente en lugar de crear una nueva.
 
-This project is built with:
+Esto reduce el consumo de memoria y mejora el rendimiento cuando se manejan grandes volúmenes de objetos similares.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+🔍 Conceptos clave
 
-## How can I deploy this project?
+Estado intrínseco: Información compartida entre todos los objetos (por ejemplo, tipo, color o forma base).
 
-Simply open [Lovable](https://lovable.dev/projects/441754d0-ce0f-4c84-8f71-55705487fc4b) and click on Share -> Publish.
+Estado extrínseco: Información que cambia por cada uso (por ejemplo, posición, tamaño o contexto).
 
-## Can I connect a custom domain to my Lovable project?
+El patrón Flyweight permite reutilizar instancias existentes, logrando eficiencia sin perder flexibilidad.
 
-Yes, you can!
+📚 Cuándo usar este patrón
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Utilizo el patrón Flyweight cuando:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Necesito crear una gran cantidad de objetos similares.
+
+La mayoría de esos objetos comparten datos comunes.
+
+Quiero reducir el consumo de memoria y optimizar recursos.
+
+📜 Licencia
+
+Este proyecto está bajo la licencia MIT.
+Puedes usarlo libremente con fines educativos o de demostración.
